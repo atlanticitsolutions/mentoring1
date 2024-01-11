@@ -4,12 +4,12 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className='relative'>
+    <div className='relative '>
       <Header />
-      <main className='relative'>
+      <main className='relative max-w-screen-xl mx-auto px-1 lg:px-4'>
         <Outlet />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
