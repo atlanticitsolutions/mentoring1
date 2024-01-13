@@ -6,4 +6,10 @@
   * {
     @apply p-0 m-0 box-border text-base;
   }
+  body {
+    @apply bg-blue-50;
+  }
+  button {
+    @apply bg-green-300 hover:opacity-85 p-2 rounded-md;
+  }
 }

@@ -9,11 +9,13 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 import { Home } from './pages/Home.jsx'
+import LoginRegister from './pages/LoginRegister.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route index={true} path='/' element={<Home />} />
+      <Route path='/loginregister' element={<LoginRegister />} />
     </Route>
   )
 )

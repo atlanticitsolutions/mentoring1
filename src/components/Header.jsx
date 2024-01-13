@@ -17,6 +17,10 @@ export default function Header() {
       title: 'Contact',
       url: '/#contact',
     },
+    {
+      title: 'Login',
+      url: '/loginregister',
+    },
   ]
 
   return (
@@ -45,6 +49,9 @@ export default function Header() {
               </a>
             </li>
           ))}
+          <li>
+            
+          </li>
         </ul>
         <div className='xs:hidden'>
           <button
