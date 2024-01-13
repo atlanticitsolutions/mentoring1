@@ -1,7 +1,19 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { signOut } from 'firebase/auth'
+import { logoutUser } from '../store/usersSlice'
+import { auth } from '../config/firebase-config'
 
 export default function Header() {
+  const user = useSelector((state) => state.data.user.user)
+  console.log(user)
+  const dispatch = useDispatch()
+  const handleLogout = () => {
+    dispatch(logoutUser())
+    signOut(auth)
+  }
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const items = [
@@ -50,7 +62,15 @@ export default function Header() {
             </li>
           ))}
           <li>
-            
+            <button className='bg-yellow-600'>
+              {user?.username ? user.username.charAt(0).toUpperCase() : 'A'}
+              <span>
+                {user?.username}{' '}
+                <div className='bg-cyan-300' onClick={handleLogout}>
+                  Logout
+                </div>
+              </span>
+            </button>
           </li>
         </ul>
         <div className='xs:hidden'>
