@@ -9,7 +9,4 @@
   /* body {
     @apply bg-blue-50;
   } */
-  button {
-    @apply bg-green-300 hover:opacity-85 p-2 rounded-md;
-  }
 }

@@ -45,11 +45,6 @@ export default function Header() {
           </div>
         </Link>
         <ul className='hidden xs:flex items-center space-x-4 md:space-x-8 text-sm md:text-lg'>
-          <li>
-            <span className='font-medium tracking-wide text-amber-300'>
-              Welcome {UserAuth.user && UserAuth.user.email}
-            </span>
-          </li>
           {items.map((item) => (
             <li key={item.url}>
               <a
@@ -62,13 +57,17 @@ export default function Header() {
           ))}
           <li>
             {UserAuth.user ? (
-              <button
-                onClick={() => {
-                  handleSignOut()
-                }}
-              >
-                Sign Out
-              </button>
+              <span className='font-medium tracking-wide text-amber-300'>
+                Welcome {UserAuth.user && UserAuth.user.email}
+                <button
+                  className='bg-red-900 rounded-md p-1 transition-opacity duration-200 hover:opacity-85'
+                  onClick={() => {
+                    handleSignOut()
+                  }}
+                >
+                  Sign Out
+                </button>
+              </span>
             ) : (
               <Link
                 to='/signin'
