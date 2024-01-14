@@ -45,6 +45,14 @@ export default function Header() {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href='#'
+              className='font-medium tracking-wide text-amber-300 transition-colors duration-200 hover:text-amber-50  active:text-amber-200'
+            >
+              Login
+            </a>
+          </li>
         </ul>
         <div className='xs:hidden'>
           <button
