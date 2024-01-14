@@ -1,19 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { signOut } from 'firebase/auth'
-import { logoutUser } from '../store/usersSlice'
-import { auth } from '../config/firebase-config'
 
 export default function Header() {
-  const user = useSelector((state) => state.data.user.user)
-  console.log(user)
-  const dispatch = useDispatch()
-  const handleLogout = () => {
-    dispatch(logoutUser())
-    signOut(auth)
-  }
-
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const items = [
