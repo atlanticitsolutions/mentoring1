@@ -1,23 +1,33 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import { Context } from '../context/AuthContext'
+import { signOut, getAuth } from 'firebase/auth'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const navigate = useNavigate()
 
   const items = [
     {
       title: 'Home',
       url: '/',
     },
-    {
-      title: 'Signin',
-      url: '/signin',
-    },
-    {
-      title: 'Signup',
-      url: '/signup',
-    },
   ]
+
+  const UserAuth = useContext(Context)
+
+  const auth = getAuth()
+  async function handleSignOut() {
+    try {
+      await signOut(auth)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <header className='sticky top-0 bg-gray-900 z-30 m-0'>
@@ -35,6 +45,11 @@ export default function Header() {
           </div>
         </Link>
         <ul className='hidden xs:flex items-center space-x-4 md:space-x-8 text-sm md:text-lg'>
+          <li>
+            <span className='font-medium tracking-wide text-amber-300'>
+              Welcome {UserAuth.user && UserAuth.user.email}
+            </span>
+          </li>
           {items.map((item) => (
             <li key={item.url}>
               <a
@@ -46,12 +61,23 @@ export default function Header() {
             </li>
           ))}
           <li>
-            <a
-              href='#'
-              className='font-medium tracking-wide text-amber-300 transition-colors duration-200 hover:text-amber-50  active:text-amber-200'
-            >
-              Login
-            </a>
+            {UserAuth.user ? (
+              <button
+                onClick={() => {
+                  handleSignOut()
+                }}
+              >
+                Sign Out
+              </button>
+            ) : (
+              <Link
+                to='/signin'
+                title='Signin'
+                className='font-medium tracking-wide text-amber-300 transition-colors duration-200 hover:text-amber-50 hover:underline active:text-amber-200'
+              >
+                Signin
+              </Link>
+            )}
           </li>
         </ul>
         <div className='xs:hidden'>

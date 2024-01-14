@@ -17,13 +17,10 @@ const Signup = () => {
     e.preventDefault()
     createUserWithEmailAndPassword(auth, email, password)
       .then((user) => {
-        // Success...
         console.log(user)
-        navigate('/home')
-        //...
+        navigate('/')
       })
       .catch((error) => {
-        // Error
         console.log(error)
       })
     // e.preventDefault()
@@ -39,7 +36,6 @@ const Signup = () => {
 
   return (
     <>
-      <Header />
       <div className='max-w-[700px] mx-auto my-16 p-4'>
         <div>
           <h1 className='text-2xl font-bold py-2'>

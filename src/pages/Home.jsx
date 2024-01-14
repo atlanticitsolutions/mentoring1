@@ -5,7 +5,6 @@ import Dashboard from './Dashboard'
 export const Home = () => {
   return (
     <div>
-      <Header />
       Home
       {/* <Dashboard /> */}
     </div>

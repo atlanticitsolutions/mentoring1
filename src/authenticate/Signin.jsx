@@ -19,7 +19,7 @@ function Signin() {
       .then((user) => {
         // Success...
         console.log(user)
-        navigate('/home')
+        navigate('/')
         //...
       })
       .catch((error) => {
@@ -39,7 +39,7 @@ function Signin() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className='max-w-[700px] mx-auto my-16 p-4'>
         <div>
           <h1 className='text-2xl font-bold py-2'>Sign in to your account</h1>
