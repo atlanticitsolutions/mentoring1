@@ -10,16 +10,12 @@ export default function Header() {
       url: '/',
     },
     {
-      title: 'About',
-      url: '/#about',
+      title: 'Signin',
+      url: '/signin',
     },
     {
-      title: 'Contact',
-      url: '/#contact',
-    },
-    {
-      title: 'Login',
-      url: '/loginregister',
+      title: 'Signup',
+      url: '/signup',
     },
   ]
 
@@ -38,12 +34,12 @@ export default function Header() {
             </span>
           </div>
         </Link>
-        <ul className='hidden xs:flex items-center space-x-4 md:space-x-8 text-sm md:text-lg hover:underline'>
+        <ul className='hidden xs:flex items-center space-x-4 md:space-x-8 text-sm md:text-lg'>
           {items.map((item) => (
             <li key={item.url}>
               <a
                 href={item.url}
-                className='font-medium tracking-wide text-amber-300 transition-colors duration-200 hover:text-amber-50  active:text-amber-200'
+                className='font-medium tracking-wide text-amber-300 transition-colors duration-200 hover:text-amber-50 hover:underline active:text-amber-200'
               >
                 {item.title}
               </a>
