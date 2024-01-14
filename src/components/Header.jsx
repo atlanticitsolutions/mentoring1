@@ -62,15 +62,13 @@ export default function Header() {
             </li>
           ))}
           <li>
-            <button className='bg-yellow-600'>
-              {user?.username ? user.username.charAt(0).toUpperCase() : 'A'}
-              <span>
-                {user?.username}{' '}
-                <div className='bg-cyan-300' onClick={handleLogout}>
-                  Logout
-                </div>
-              </span>
-            </button>
+            {user ? (
+              <div className='border' onClick={handleLogout}>
+                Logout
+              </div>
+            ) : (
+              <div className='border'>Login</div>
+            )}
           </li>
         </ul>
         <div className='xs:hidden'>
