@@ -3,6 +3,7 @@ import { Home } from '../pages/Home'
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
 import Signin from '../authenticate/Signin'
 import Signup from '../authenticate/Signup'
+import Dashboard from '../pages/Dashboard'
 //import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 
 export default function Router() {
@@ -23,6 +24,7 @@ export default function Router() {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route path='/home' element={<Home />} />
+            <Route path='dashboard' element={<Dashboard />} />
             <Route path='signin' element={<Signin />} />
             <Route path='signup' element={<Signup />} />
           </Route>

@@ -16,6 +16,10 @@ export default function Header() {
       title: 'Home',
       url: '/',
     },
+    {
+      title: 'Dashboard',
+      url: '/dashboard',
+    },
   ]
 
   const UserAuth = useContext(Context)
