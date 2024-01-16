@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore'
 import { db } from '../config/firebase-config'
+import { Link } from 'react-router-dom'
 
 export default function Dashboard() {
   const [mentors, setMentors] = useState([])
@@ -14,6 +15,7 @@ export default function Dashboard() {
         id: doc.id,
       }))
       setMentors(filteredData)
+      // console.log(mentors)
     } catch (err) {
       console.error(err)
     }
@@ -27,7 +29,9 @@ export default function Dashboard() {
     <div>
       <h1 className='text-3xl'>Mentors</h1>
       {mentors.map((mentor) => (
-        <div>{mentor.firstName}</div>
+        <Link to={`/mentor/${mentor.id}`} key={mentor.id}>
+          <div>{mentor.firstName}</div>
+        </Link>
       ))}
     </div>
   )
